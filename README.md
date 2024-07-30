@@ -10,7 +10,7 @@ On this project, you will be able to run and execute the Automation testing to f
 # Install
 
 ```sh
-git clone https://github.com/JoseAlejandroRR/loanpro-calculator.git .
+git clone https://github.com/JoseAlejandroRR/loanpro-calculator.git
 cd loanpro-calculator
 npm install 
 ```
