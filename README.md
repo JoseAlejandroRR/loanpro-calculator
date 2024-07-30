@@ -10,8 +10,8 @@ On this project, you will be able to run and execute the Automation testing to f
 # Install
 
 ```sh
-git clone https://xxxx .
-cd loadpro-calculator
+git clone https://github.com/JoseAlejandroRR/loanpro-calculator.git .
+cd loanpro-calculator
 npm install 
 ```
 Now, you have to download the LoanPro-Calculator from docker. Go to your terminal and run:
