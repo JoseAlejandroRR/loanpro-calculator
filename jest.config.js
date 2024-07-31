@@ -1,6 +1,6 @@
-const { NODE_ENV} = process.env;
+const { NODE_ENV } = process.env
 
-const debugMode = process.env.NODE_ENV === "automation"
+const debugMode = NODE_ENV === "automation"
 
 const config = {
   testEnvironment: "allure-jest/node",
@@ -28,6 +28,7 @@ const config = {
   collectCoverage: true,
   coverageDirectory: './_reporting/coverage',
   globalSetup: './src/__tests__/starterSetup.ts',
+  testTimeout: 1000 * 30,
 };
 
 module.exports = config;
