@@ -1,15 +1,15 @@
 # Use the base image of Alpine
-FROM alpine:latest
+FROM node:20-alpine
 
 # Set environment variables to avoid prompts during installation
 ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk
 ENV PATH=$JAVA_HOME/bin:$PATH
 
 # Update the package index and install necessary dependencies
+#nodejs-current \
 RUN apk update && \
     apk add --no-cache \
     openjdk11-jdk \
-    nodejs-current \
     npm \
     docker \
     bash \
