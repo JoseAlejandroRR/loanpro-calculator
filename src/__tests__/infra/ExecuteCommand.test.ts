@@ -7,7 +7,6 @@ describe('Runner Commander', () => {
   testLocal('RUN "ls" to check existents files', async () => {
     const { output } = await commander('ls')
 
-    console.log("DEBUG_MODE NO DEBERIA APARECER")
     if (!output) {
       throw new Error("Can't read directory files.")
     }

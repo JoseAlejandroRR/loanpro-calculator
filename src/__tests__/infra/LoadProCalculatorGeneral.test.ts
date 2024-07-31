@@ -31,7 +31,6 @@ const DATA_TASKS = [
 describe.only('LoadProCalculator - Random Tests', () => {
 
   let calculator: ICalculator;
-  let currentTestId = 0;
 
   beforeAll(() => {
     calculator = new LoadProCalculator()
@@ -133,8 +132,6 @@ describe.only('LoadProCalculator - Random Tests', () => {
     })
 
     expect(result).toEqual(expected)
-    currentTestId = currentTestId + 1
-    console.log("INDEX: ", currentTestId)
   })
 
 })
