@@ -1,4 +1,3 @@
-import pino from "pino";
 
 const { NODE_ENV } = process.env
 
@@ -41,18 +40,5 @@ class Logger {
     console.log(`\x1b[${COLORS.YELLOW}m ${text} \x1b[0m`)
   }
 }
-
-//console.log("CHECKING CONFIG: ",NODE_ENV,  isAutomationMode, isAutomationMode ? 'debug' : 'info')
-/*
-export const logger = pino({
-  name: 'loadpro-calculator',
-  level: isAutomationMode ? 'debug' : 'info',
-  transport: {
-    target: 'pino-pretty',
-    options: {
-      colorize: true
-    }
-  }
-});*/
 
 export const logger = new Logger(isAutomationMode)
