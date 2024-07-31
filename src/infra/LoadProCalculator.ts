@@ -64,9 +64,12 @@ class LoadProCalculator implements ICalculator {
 		}
 
 		let value: string | null = null;
+		let numbers: string[]
 
 		if (/Result:/.test(output)) {
-			value = output.substring(7).trim()
+			const numbers = output.trim().match(/-?(\d+(\.\d+)?)|(\.\d+)/g)
+
+			if(numbers?.length) value = numbers.join("")
 		}
 
 		if (value === null) return NaN

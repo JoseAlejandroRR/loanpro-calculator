@@ -74,13 +74,14 @@ npm run serve
 
 ### Jest-stare
 
-After executing ***npm run test***, a folder will be created at **[projectRoot]/_reporting/jest-stare/**, just open the local file **index.html** in the browser.
+After executing ***npm run test***, a folder will be created at **[projectRoot]/_reporting/jest-stare/**, just open the local file **index.html** in the browser. The report will shows only the Failed tests, but you are able to handle the other statuses in the top menu.
+
 ![jest-stare-test-report](https://github.com/JoseAlejandroRR/loanpro-calculator/blob/main/resources/images/jest-stare-test-report.png?raw=true)
 
 
 ### Allure
 
-Allure it's an advanced tool to manage and report pipeline Automations, so its represent a higher effort.
+Allure it's an advanced tool to manage and report pipeline Automations, so its represent a higher effort. The dashboard enable you filtering by suites, files, tests status and others features, you only have to choose what you need.
 If you are interested only in the bugs/issues reported, go through the "Categories" link at the left nav and you will find sorted the ***Failed*** and ***Broken*** tests, or just go to: http://localhost:61901/index.html#categories.
 ![allure-test-report](https://github.com/JoseAlejandroRR/loanpro-calculator/blob/main/resources/images/allure-test-report.png?raw=true)
 

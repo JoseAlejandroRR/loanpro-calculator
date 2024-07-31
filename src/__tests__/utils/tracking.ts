@@ -1,4 +1,4 @@
-import { descriptionHtml, parameter, feature, epic, severity, issue, tags } from "allure-js-commons";
+import { description, descriptionHtml, parameter, feature, epic, severity, issue, tags } from "allure-js-commons";
 
 export enum SeverityLevel {
   NORMAL   = 'normal',
@@ -47,11 +47,12 @@ export type TrackingParams = {
   severityLevel?: string;
   epicId?: string;
   tagsList?: string[],
+  info?: string,
 }
 
 export const tracking = (data: TrackingParams): void => {
   const { operation, argument0, argument1, received, expected, exception } = data
-  const { testCaseId, featureId, severityLevel, epicId, tagsList } = data
+  const { testCaseId, featureId, severityLevel, epicId, tagsList, info } = data
   const receivedHTML = received !== expected ? `
   <p style="font-weight: bold; margin-bottom:20px;">
   Received: <span style="color:red;">${received}</span>
@@ -63,6 +64,13 @@ export const tracking = (data: TrackingParams): void => {
   Exception: <span style="color:red;">${exception}</span>
   </p>
   ` : '';
+
+  const extraHTML = info ? `
+  <p style="font-weight: bold; margin-bottom:20px;">
+  NOTE: <span style="">${info}</span>
+  </p>
+  ` : '';
+
 
   const command = `docker run --rm public.ecr.aws/l4q9w4c5/loanpro-calculator-cli ${operation} ${argument0} ${argument1}`
   
@@ -78,6 +86,7 @@ export const tracking = (data: TrackingParams): void => {
     ${TableTestDescription(operation, argument0, argument1, expected, received === expected)}
     ${received === expected ? '' : receivedHTML} 
     ${exceptionHTML}
+    ${extraHTML}
     ${ShellComponent(command)}
   `)
 }
@@ -88,13 +97,15 @@ export type MetadataParamns = {
   severityLevel?: string;
   epicId?: string;
   tagsList?: string[],
+  info?: string,
 }
 
 export const metadata = (data: MetadataParamns): void => {
-  const { testCaseId, featureId, epicId, tagsList } = data
+  const { testCaseId, featureId, epicId, tagsList, info } = data
   if(testCaseId) issue(`https://jira-domain.com/browse/${testCaseId}`)
   if(testCaseId) parameter('TestCaseId', testCaseId)
   if(featureId) feature(featureId)
   if(epicId) epic(epicId)
   if(tagsList) tags(...tagsList)
+  if(info) description(info)
 }

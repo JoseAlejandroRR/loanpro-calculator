@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "static-server": "tsx src/index.ts",
-    "serve": "npm run static-server | npx allure serve allure-results --port 61901",
+    "serve": "npm run static-server | npx allure serve allure-results -h localhost --port 61901",
     "server": "npm run test || npm run serve",
     "test:automation": "cross-env NODE_ENV=automation jest"
   },
