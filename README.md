@@ -1,11 +1,28 @@
 # LoanPro-Calculator Automation
 
 LoanPro has built a new, state of the art calculator that’s set to revolutionize the world of basic arithmetic operations. 
-On this project, you will be able to run and execute the Automation testing to find and replicate bugs/issues reported
+On this project, you will be able to run and execute the Automation testing to find and replicate bugs/issues reported.
 
-# Requeriments:
-- Docker
-- Java Runtime Environment (Optional)
+### Requeriments:
+- **NodeJS**: You must have installed NodeJS, preferred with the version 20.X
+- **Docker**
+- **LoandPro-Calculator-CLI**
+- **Java Runtime Environment** (Optional)
+- **Allure CLI** (Optional)
+
+# Setup Environtment
+Firstable, make your of have running Docker. Later you need to download the docker image:
+***Installing:***
+```sh
+docker pull public.ecr.aws/l4q9w4c5/loanpro-calculator-cli:latest
+```
+Now you are able to test the Calculator its working okay first:
+***Running the calculator:***
+```sh
+docker run --rm public.ecr.aws/l4q9w4c5/loanpro-calculator-cli add 8 4
+Result: 12      //output
+```
+If your got the right output, you are okay to install the automation project.
 
 # Install
 
@@ -14,16 +31,11 @@ git clone https://github.com/JoseAlejandroRR/loanpro-calculator.git
 cd loanpro-calculator
 npm install 
 ```
-Now, you have to download the LoanPro-Calculator from docker. Go to your terminal and run:
 
-***Installing***
+**Installing Allure** (Optional)
+Be sure of having the JRE (Java Runtime Environment) installed at your computer. If you need it, you can try this easy guide to install using [jenv](https://www.jenv.be/).
 ```sh
-docker pull public.ecr.aws/l4q9w4c5/loanpro-calculator-cli:latest
-```
-
-***Running the calculator***
-```sh
-docker run --rm public.ecr.aws/l4q9w4c5/loanpro-calculator-cli add 8 5
+npm  install  -g  allure-commandline // Install globaly the tool
 ```
 
 ## How it Works
@@ -51,33 +63,23 @@ Running on this mode, you will execute the whole tests in the project, where are
 npm run test:automation 
 ```
 
-## Reports
+# Reports
 
 The project is setup with Jest as framework to build the tests, integrated with two different options to generate reports. The first and more basic its **[Jest-stare](https://www.npmjs.com/package/jest-stare)**, and the second and more powerful its [Allure](https://allurereport.org/).
 
-## Jest-stare
-
-After executing ***npm run test***, a folder will be created at **[projectRoot]/_reporting/jest-stare/**, just open the local file **index.html** in the browser.
-
-## Allure
-
-Allure it's an advanced tool to manage and report pipeline Automations, so its represent a higher effort. Steps:
-
- 1. Be sure of having the JRE (Java Runtime Environment) installed at your computer. If you need it, you can try this easy guide to install using [jenv](https://www.jenv.be/).
- 2. Now open your terminal and run:
-  ```sh
-npm  install  -g  allure-commandline // Install globaly the tool
-
-npm run server
-
-// OR
+```sh
 npm run test
 npm run serve
 ```
-Just in case the terminal doesn't opens the dashboard automatically, go to the local address: http://localhost:61901.
 
-3. If you are interested only in the bugs/issues reported, go through the "Categories" link at the left nav and you will find sorted the ***Failed*** and ***Broken*** tests, or just go to: http://localhost:61901/index.html#categories
+### Jest-stare
 
+After executing ***npm run test***, a folder will be created at **[projectRoot]/_reporting/jest-stare/**, just open the local file **index.html** in the browser.
+
+### Allure
+
+Allure it's an advanced tool to manage and report pipeline Automations, so its represent a higher effort.
+If you are interested only in the bugs/issues reported, go through the "Categories" link at the left nav and you will find sorted the ***Failed*** and ***Broken*** tests, or just go to: http://localhost:61901/index.html#categories.
 
 # Docker
 
